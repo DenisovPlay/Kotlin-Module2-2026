@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -20,8 +21,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    Hello(
+                        name = "Андрей",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +32,27 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Hello(name: String?, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = if (name == null) "Имя не задано" else "Привет, $name!",
         modifier = modifier
     )
 }
 
-@Preview(showBackground = true)
+@Preview(name = "portrait", showSystemUi = true, device = "spec:parent=pixel_5,orientation=portrait")
+@Preview(name = "landscape", showSystemUi = true, device = "spec:parent=pixel_5,orientation=landscape")
+@Preview(
+    name = "round",
+    showSystemUi = true,
+    showBackground = true,
+    backgroundColor = 0xFFFFFF00,
+    device = "spec:width=200dp,height=200dp,isRound=true,dpi=480"
+)
 @Composable
-fun GreetingPreview() {
+fun HelloPreview() {
     MyApplicationTheme {
-        Greeting("Android")
+        Box(Modifier.fillMaxSize()) {
+            Hello("Андрей")
+        }
     }
 }
