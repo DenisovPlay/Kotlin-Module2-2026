@@ -27,7 +27,7 @@ class WaterTrackerTest {
     }
 
     @Test
-    fun addButtonExistsAndAdds250() {
+    fun knopkaEstNalivaet250() {
         composeTestRule.onNodeWithText("+250 мл").assertExists()
         composeTestRule.onNodeWithText("0 мл").assertExists()
         drink(1)
@@ -37,7 +37,7 @@ class WaterTrackerTest {
     }
 
     @Test
-    fun finishDayButtonResetsWater() {
+    fun knopkaFinishResetsWater() {
         composeTestRule.onNodeWithText("Завершить день").assertExists()
         drink(2)
         composeTestRule.onNodeWithText("Завершить день").performClick()
@@ -45,7 +45,7 @@ class WaterTrackerTest {
     }
 
     @Test
-    fun daysCounterGrowsAfter1500AndResetsOtherwise() {
+    fun strikS4itaetISbrasivaet() {
         composeTestRule.onNodeWithText("Дней подряд с 1500 мл и больше: 0").assertExists()
 
         drink(6)

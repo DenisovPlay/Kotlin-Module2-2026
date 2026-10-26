@@ -38,10 +38,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Hello(
-                        name = "Андрей",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    //Hello(
+                    //    name = "Андрей",
+                    //    modifier = Modifier.padding(innerPadding)
+                    //)
+                    ShoppingCartScreen()
                 }
             }
         }
